@@ -30,5 +30,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAll() {
         return productDao.findAll();
     }
+    
+    public void insert(String name, Integer price) {
+        productDao.insert(name, price);
+    }
 }
 

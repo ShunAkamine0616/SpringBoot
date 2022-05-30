@@ -9,6 +9,7 @@ public interface ProductService {
     public Product findById(Integer id);
     public List<Product> findByName(String name);
     public List<Product> findByPrice(Integer price);
-    public List<Product> findByNameAndPrice(String name, Integer id);
+    public List<Product> findByNameAndPrice(String name, Integer price);
     public List<Product> findAll();
+    public void insert(String name, Integer price);
 }

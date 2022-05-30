@@ -21,7 +21,8 @@
 <label>price：</label>
     <form:input type="number" path="price"/>
     <br>
-    <form:button type="submit">検索</form:button>
+    <form:button type="submit" value="search" name ="btn">検索</form:button>
+    <form:button type="submit" value="insert" name="btn">登録</form:button>
 </form:form>
 </body>
 </html>

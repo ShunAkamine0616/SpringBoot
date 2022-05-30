@@ -20,6 +20,7 @@ public class PgProductDao implements ProductDao {
     private static final String SELECT_BY_PRODUCT_PRICE = "SELECT * FROM products WHERE price = :price ORDER BY product_id";
     private static final String SELECT_BY_PRODUCT_NAME_AND_PRICE = "SELECT * FROM products WHERE product_name = :name AND price = :price  ORDER BY product_id";
     private static final String SELECT_ALL_PRODUCT = "SELECT * FROM products";
+    private static final String INSERT_PRODUCT = "INSERT INTO products (product_name, price) VALUES(:name, :price)";
     
     @Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
@@ -76,6 +77,16 @@ public class PgProductDao implements ProductDao {
         List<Product> resultList = jdbcTemplate2.query(sql, new BeanPropertyRowMapper<Product>(Product.class));
 
         return resultList.isEmpty() ? null : resultList;
+    }
+    
+    public void insert(String name, Integer price) {
+        String sql = INSERT_PRODUCT;
+//        MapSqlParameterSource param = new MapSqlParameterSource();
+        MapSqlParameterSource param = new MapSqlParameterSource();
+        param.addValue("name", name);
+        param.addValue("price", price);
+  
+        jdbcTemplate.update(sql, param);
     }
 
 }
