@@ -4,8 +4,15 @@ public class Form {
 
 	private Integer productId;
     private String productName;
+    private Integer price;
     
     
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
 	public String getProductName() {
 		return productName;
 	}

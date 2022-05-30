@@ -10,15 +10,18 @@
 <title>トップ画面</title>
 </head>
 <body>
-	<h1>検索条件を入力してください</h1>
-	<c:if test="${not empty msg}">
-		${fn:escapeXml(msg)}
-	</c:if>
-	<form:form action="result" modelAttribute="index" method="post">
-		<label>product_id：</label>
-		<form:input type="text" path="productId" />
-		<br>
-		<form:button type="submit">検索</form:button>
-	</form:form>
+<h1>検索条件を入力してください</h1>
+<c:if test="${not empty result}">
+<p>${result}</p>
+</c:if>
+<form:form action="result" modelAttribute="index" method="post">
+<label>product_name：</label>
+    <form:input type="text" path="productName"/>
+    <br>
+<label>price：</label>
+    <form:input type="number" path="price"/>
+    <br>
+    <form:button type="submit">検索</form:button>
+</form:form>
 </body>
 </html>
